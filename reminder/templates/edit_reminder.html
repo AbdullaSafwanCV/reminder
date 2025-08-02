@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Reminder</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .edit-container {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .edit-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      .edit-form .form-group {
+        margin-bottom: 20px;
+      }
+
+      .edit-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #444;
+      }
+
+      .edit-form input[type="text"],
+      .edit-form input[type="date"] {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+
+      .save-button {
+        width: 100%;
+        padding: 12px;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .save-button:hover {
+        background-color: #45a049;
+      }
+
+      .cancel-link {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #888;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .cancel-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <div class="edit-container">
+      <h2>Edit To-Do</h2>
+      <form method="POST" class="edit-form">
+        {% csrf_token %} {{ form.non_field_errors }}
+
+        <div class="form-group">
+          {{ form.title.label_tag }} {{ form.title }}
+        </div>
+
+        <div class="form-group">
+          {{ form.description.label_tag }} {{ form.description }}
+        </div>
+
+        <div class="form-group">{{ form.date.label_tag }} {{ form.date }}</div>
+
+        <button type="submit" class="save-button">Save Changes</button>
+        <a href="{% url 'index' %}" class="cancel-link"
+          ><button class="save-button">Cancel</button></a
+        >
+      </form>
+    </div>
+  </body>
+</html>
