@@ -65,14 +65,14 @@ def edit_reminder(request, pk):
     return render(request, 'edit_reminder.html', {'form': form, 'reminder': reminder})
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user)
-            return redirect('home') 
+            login(request, user)
+            return redirect('index') 
         else:
             return render(request, 'registration_page.html', {'error': 'Invalid credentials'})
     return render(request, 'registration_page.html')
