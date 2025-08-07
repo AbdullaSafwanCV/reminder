@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'reminder-bfsh.onrender.com',
+    
     'localhost',                  
     '127.0.0.1'
 ]
