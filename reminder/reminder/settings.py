@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-jvvf8pmkyiac^&k+%m_-%mt&a6b2264)i+#m+jn#o3qdp2d674
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'reminder-bfsh.onrender.com',
-    
+    'reminder-cail.onrender.com',
     'localhost',                  
     '127.0.0.1'
 ]
